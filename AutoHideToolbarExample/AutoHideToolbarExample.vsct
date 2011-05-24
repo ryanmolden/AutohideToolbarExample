@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Extern href="msobtnid.h"/>
+  <Commands package="guidAutoHideToolbarExamplePkg">
+    <Groups>
+      <!-- Our group to hold our command on our toolbar -->
+      <Group guid="guidAutoHideToolbarExampleCmdSet" id="IDG_MYTOOLBAR_GROUP" priority="0x0000">
+        <Parent guid="guidAutoHideToolbarExampleCmdSet" id="cmdidMyAutoHideToolbar"/>
+      </Group>
+    </Groups>
+    <Menus>
+      <!-- Our spiffy toolbar -->
+      <Menu guid="guidAutoHideToolbarExampleCmdSet" id="cmdidMyAutoHideToolbar" type="Toolbar">
+        <Strings>
+          <ButtonText>My AutoHide Toolbar</ButtonText>
+        </Strings>
+      </Menu>     
+    </Menus>    
+    <Buttons>
+      <Button guid="guidAutoHideToolbarExampleCmdSet" id="cmdidMyTool" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
+        <Icon guid="guidImages" id="bmpPic2" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <CommandName>cmdidMyTool</CommandName>
+          <ButtonText>Hai Guyz!!</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>        
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Images_32bit.bmp" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows"/>
+    </Bitmaps>
+  </Commands>
+  <CommandPlacements>
+    <!-- Place our 'show our window' command on our toolbar -->
+    <CommandPlacement guid="guidAutoHideToolbarExampleCmdSet" id="cmdidMyTool" priority="0x0000">
+      <Parent guid="guidAutoHideToolbarExampleCmdSet" id="IDG_MYTOOLBAR_GROUP"/>
+    </CommandPlacement>
+  </CommandPlacements>
+  <VisibilityConstraints>
+    <!-- Make our toolbar become autovisible when our cmdSet GUID becomes active in the shell's UI context (we make this happen in our 
+    tool window pane class) -->
+    <VisibilityItem context="guidAutoHideToolbarExampleCmdSet" guid="guidAutoHideToolbarExampleCmdSet" id="cmdidMyAutoHideToolbar"/>
+  </VisibilityConstraints>
+  <Symbols>
+    <GuidSymbol name="guidAutoHideToolbarExamplePkg" value="{fa4e082d-4fef-402a-9056-d0987c183ff7}" />
+    <GuidSymbol name="guidAutoHideToolbarExampleCmdSet" value="{efbdc202-9ecf-4734-91f6-34cfef71ee82}">
+      <IDSymbol name="cmdidMyTool" value="0x0101" />
+      <IDSymbol name="cmdidMyAutoHideToolbar" value="0x0102"/>
+      <IDSymbol name="IDG_MYTOOLBAR_GROUP" value="0x0103"/>
+    </GuidSymbol>
+    <GuidSymbol name="guidImages" value="{e101675b-0e1e-4967-95ec-6494bf490191}" >
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

@@ -1,0 +1,3 @@
+AutoHide toolbar example
+
+Shows how to create a top level VS toolbar that is automatically shown/hidden dynamically based on UI context. The same technique works for menus and commands being auto shown/hidden based on UI context.
